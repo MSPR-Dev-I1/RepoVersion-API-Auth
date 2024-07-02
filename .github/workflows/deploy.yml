@@ -30,6 +30,6 @@ jobs:
         INSTANCE_UNIX_SOCKET: ${{ secrets.INSTANCE_UNIX_SOCKET }}
         CONNECTION_NAME: ${{ secrets.CONNECTION_NAME }}
         JWT_KEY: ${{ secrets.JWT_KEY }}
-        VERSION: eb79647d6db3cfd510c9da53f731d5da671deb98fa3aee32523813f64e6045d5
+        VERSION: 249b40e0fe0a63dbdf52eff2aa5f263104e7a703500d19421e4e0a0a259d69e2
       run: |-
         gcloud run deploy api-auth-develop --image europe-west9-docker.pkg.dev/$GOOGLE_PROJECT/api-auth/image-api-auth@sha256:$VERSION --set-env-vars DATABASE_HOST=$DATABASE_HOST --set-env-vars DATABASE_USER=$DATABASE_USER --set-env-vars DATABASE_PASSWORD=$DATABASE_PASSWORD --set-env-vars INSTANCE_UNIX_SOCKET=$INSTANCE_UNIX_SOCKET --set-env-vars JWT_KEY=$JWT_KEY --add-cloudsql-instances $CONNECTION_NAME --region europe-west9 --platform managed --allow-unauthenticated
